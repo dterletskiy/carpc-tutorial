@@ -73,7 +73,7 @@ setup_build_system $@
 
 
 
-readonly CARPC_FW=./build
+readonly CARPC_FW=./build/shell
 source ${CARPC_FW}/constants.sh
 source ${CARPC_FW}/build.sh
 source ${CARPC_FW}/run.sh
@@ -178,6 +178,7 @@ function main( )
       ;;
       ${COMMAND[BUILD]})
          print_info "build"
+         configure
          build
          install
       ;;
