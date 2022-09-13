@@ -15,7 +15,7 @@ thread: OnOff_Thread
    watchdog: 5;
 };
 
-application: example_01
+application: example_03
 {
    threads: OnOff_Thread;
 };

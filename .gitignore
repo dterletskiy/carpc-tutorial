@@ -1,3 +1,4 @@
-/*_product
+# Byte-compiled / optimized / DLL files
 __pycache__/
-build/generator/adl/__pycache__/
+*.py[cod]
+*$py.class

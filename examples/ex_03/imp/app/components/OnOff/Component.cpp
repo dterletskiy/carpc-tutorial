@@ -38,7 +38,7 @@ void Component::process_boot( const std::string& command )
 
 void Component::process_shutdown( carpc::callback::tBlocker blocker )
 {
-   MSG_DBG( );
+   MSG_DBG( "shutting down application" );
 }
 
 void Component::process_event( const events::SimpleNoSigNoData::Event& event )
