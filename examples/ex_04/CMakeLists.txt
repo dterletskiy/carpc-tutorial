@@ -1,6 +1,6 @@
 cmake_minimum_required( VERSION 3.16 FATAL_ERROR )
 
-project( EXAMPLE_03 )
+project( EXAMPLE_04 )
 
 
 

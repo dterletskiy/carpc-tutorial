@@ -2,6 +2,9 @@
 
 // Framework
 #include "carpc/application/RootComponent.hpp"
+// Application
+#include "imp/app/events/AppEvent.hpp"
+
 
 
 
@@ -9,6 +12,10 @@ namespace application::components::onoff {
 
    class Component
       : public carpc::application::RootComponent
+      , public events::SimpleNoSigNoData::Consumer
+      , public events::SimpleIdSigNoData::Consumer
+      , public events::SimpleIdSig::Consumer
+      , public events::Simple::Consumer
    {
       public:
          static carpc::application::IComponent::tSptr creator( );
@@ -17,6 +24,12 @@ namespace application::components::onoff {
          Component( const std::string& );
       public:
          ~Component( ) override;
+
+      private:
+         void process_event( const events::SimpleNoSigNoData::Event& ) override;
+         void process_event( const events::SimpleIdSigNoData::Event& ) override;
+         void process_event( const events::SimpleIdSig::Event& ) override;
+         void process_event( const events::Simple::Event& ) override;
 
       private:
          void process_boot( const std::string& ) override;

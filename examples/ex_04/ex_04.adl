@@ -3,19 +3,19 @@ version: 1.0.0;
 
 
 
-component: Component_OnOff
+component: OnOff
 {
    include: "imp/app/components/OnOff/Component.hpp";
    creator: application::components::onoff::Component::creator;
 };
 
-thread: Thread_OnOff
+thread: OnOff_Thread
 {
-   components: Component_OnOff;
+   components: OnOff;
    watchdog: 5;
 };
 
-application: example_02
+application: example_04
 {
-   threads: Thread_OnOff;
+   threads: OnOff_Thread;
 };
