@@ -33,7 +33,7 @@ Component::~Component( )
 void Component::process_boot( const std::string& command )
 {
    MSG_DBG( "%s", command.c_str( ) );
-   events::SimpleNoSigNoData::Event::create_send( );
+   events::SimpleNoSigNoData::Event::create( )->send( );
 }
 
 void Component::process_shutdown( carpc::callback::tBlocker blocker )
@@ -45,7 +45,7 @@ void Component::process_event( const events::SimpleNoSigNoData::Event& event )
 {
    MSG_DBG( "SimpleNoSigNoData" );
 
-   events::SimpleIdSigNoData::Event::create_send( { events::eAppEventID::PING } );
+   events::SimpleIdSigNoData::Event::create( { events::eAppEventID::PING } )->send( );
 }
 
 void Component::process_event( const events::SimpleIdSigNoData::Event& event )
@@ -54,7 +54,8 @@ void Component::process_event( const events::SimpleIdSigNoData::Event& event )
 
    MSG_DBG( "SimpleIdSigNoData signature: id = '%s'", events::c_str( event_id ) );
 
-   events::SimpleIdSig::Event::create_send( { events::eAppEventID::SHUTDOWN }, { "shutdown message" } );
+   events::SimpleIdSig::Event::create( { events::eAppEventID::SHUTDOWN } )->
+      data( { "shutdown message" } )->send( );
 }
 
 void Component::process_event( const events::SimpleIdSig::Event& event )
