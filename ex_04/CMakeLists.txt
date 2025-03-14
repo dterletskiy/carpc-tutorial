@@ -66,9 +66,10 @@ add_executable(
 )
 
 target_link_libraries( ${PROJECT_TARGET_NAME} dlt )
-target_link_libraries( ${PROJECT_TARGET_NAME} tracing )
-target_link_libraries( ${PROJECT_TARGET_NAME} tools )
-target_link_libraries( ${PROJECT_TARGET_NAME} runtime )
+target_link_libraries( ${PROJECT_TARGET_NAME} ${TARGET_PREFIX}tracing )
+target_link_libraries( ${PROJECT_TARGET_NAME} ${TARGET_PREFIX}base )
+target_link_libraries( ${PROJECT_TARGET_NAME} ${TARGET_PREFIX}tools )
+target_link_libraries( ${PROJECT_TARGET_NAME} ${TARGET_PREFIX}runtime )
 
 install( TARGETS ${PROJECT_TARGET_NAME} DESTINATION bin )
 install( FILES ${PROJECT_SOURCE_DIR}/${PROJECT_TARGET_NAME}.cfg DESTINATION etc OPTIONAL )
