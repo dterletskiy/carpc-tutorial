@@ -71,5 +71,10 @@ target_link_libraries( ${PROJECT_TARGET_NAME} ${TARGET_PREFIX}base )
 target_link_libraries( ${PROJECT_TARGET_NAME} ${TARGET_PREFIX}tools )
 target_link_libraries( ${PROJECT_TARGET_NAME} ${TARGET_PREFIX}runtime )
 
-install( TARGETS ${PROJECT_TARGET_NAME} DESTINATION bin )
-install( FILES ${PROJECT_SOURCE_DIR}/${PROJECT_TARGET_NAME}.cfg DESTINATION etc OPTIONAL )
+install( TARGETS ${PROJECT_TARGET_NAME} DESTINATION bin/carpc/ )
+
+install(
+      FILES ${PROJECT_SOURCE_DIR}/configuration.cfg
+      DESTINATION etc/carpc/
+      RENAME ${PROJECT_TARGET_NAME}.cfg
+   )
