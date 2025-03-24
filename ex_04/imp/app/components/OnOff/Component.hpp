@@ -12,10 +12,10 @@ namespace application::components::onoff {
 
    class Component
       : public carpc::application::RootComponent
-      , public events::SimpleNoSigNoData::Consumer
-      , public events::SimpleIdSigNoData::Consumer
-      , public events::SimpleIdSig::Consumer
-      , public events::Simple::Consumer
+      , public events::NoSigNoData::Consumer
+      , public events::IdSigNoData::Consumer
+      , public events::IdSigData::Consumer
+      , public events::SigData::Consumer
    {
       public:
          static carpc::application::IComponent::tSptr creator( );
@@ -26,10 +26,10 @@ namespace application::components::onoff {
          ~Component( ) override;
 
       private:
-         void process_event( const events::SimpleNoSigNoData::Event& ) override;
-         void process_event( const events::SimpleIdSigNoData::Event& ) override;
-         void process_event( const events::SimpleIdSig::Event& ) override;
-         void process_event( const events::Simple::Event& ) override;
+         void process_event( const events::NoSigNoData::Event& ) override;
+         void process_event( const events::IdSigNoData::Event& ) override;
+         void process_event( const events::IdSigData::Event& ) override;
+         void process_event( const events::SigData::Event& ) override;
 
       private:
          void process_boot( const std::string& ) override;

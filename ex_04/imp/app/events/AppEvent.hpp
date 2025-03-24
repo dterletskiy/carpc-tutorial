@@ -27,9 +27,9 @@ namespace application::events {
 
 
 
-   DEFINE_EVENT_NOSIG_NODATA( SimpleNoSigNoData );
-   DEFINE_EVENT_IDSIG_NODATA( SimpleIdSigNoData, eAppEventID );
-   DEFINE_EVENT_IDSIG( SimpleIdSig, AppEventData, eAppEventID );
-   DEFINE_EVENT( Simple, AppEventData, AppEventSignature );
+   DEFINE_EVENT_NOSIG_NODATA( NoSigNoData );
+   DEFINE_EVENT_IDSIG_NODATA( IdSigNoData, eAppEventID );
+   DEFINE_EVENT_IDSIG( IdSigData, AppEventData, eAppEventID );
+   DEFINE_EVENT( SigData, AppEventData, AppEventSignature );
 
 } // namespace application::events
